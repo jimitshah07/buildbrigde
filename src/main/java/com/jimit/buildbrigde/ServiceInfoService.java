@@ -1,17 +1,31 @@
 package com.jimit.buildbrigde;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+
 import java.util.*;
 @Service
 
 public class ServiceInfoService {
+    private final ServiceRepository kitchen;
+
+    public ServiceInfoService(ServiceRepository kitchen)
+    {
+        this.kitchen=kitchen;
+    }
     public List<ServiceInfo> getAllServices()
     {
-        return List.of(
-            new ServiceInfo("payment-service", "payments-teams", "github.com/acme/payment-service"),
-            new ServiceInfo("login-service", "identity-teams", "github.com/acme/login-service")
-
-        );
+        return kitchen.findAll();
 
     }
+   
+    public ServiceInfo addService(@RequestBody ServiceInfo service)
+    {
+        return kitchen.save(service);
+    }
+
+    
+
 }
