@@ -2,6 +2,7 @@ package com.jimit.buildbrigde;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
 
 @RestController 
 public class HomeController {
@@ -17,5 +18,7 @@ public class HomeController {
         return new HealthStatus("UP","buildbrigde");
 
     }
+    
 
-}
+
+}  
