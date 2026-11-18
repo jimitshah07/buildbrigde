@@ -3,6 +3,7 @@ package com.jimit.buildbrigde;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import jakarta.validation.Valid;
 
 
 import java.util.*;
@@ -21,7 +22,7 @@ public class ServiceInfoService {
 
     }
    
-    public ServiceInfo addService(@RequestBody ServiceInfo service)
+    public ServiceInfo addService(ServiceInfo service)
     {
         return kitchen.save(service);
     }

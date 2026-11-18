@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-
+import jakarta.validation.Valid;
 import java.util.List; 
 
 @RestController 
@@ -22,8 +22,8 @@ public class ServiceController {
         return chef.getAllServices();
     }
     @PostMapping("/services")
-    public ServiceInfo addService(@RequestBody ServiceInfo service)
+    public ServiceInfo addService(@Valid @RequestBody ServiceInfo service)
     {
-        return chef.addService(service);   // the chef method you just wrote
+        return chef.addService(service);  
     }
 }
